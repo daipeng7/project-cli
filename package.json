@@ -1,0 +1,57 @@
+{
+  "name": "@dp/project-cli",
+  "version": "1.0.0",
+  "description": "create a project cli",
+  "author": "daipeng7",
+  "license": "ISC",
+  "homepage": "https://github.com/daipeng7/project-clin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daipeng7/project-cli.git"
+  },
+  "scripts": {
+    "build": "node ./scripts/copy.js && cross-env NODE_ENV=production babel src -d ./ --copy-files | bunyan"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "files": [
+    "bin",
+    "lib",
+    "package.json",
+    "README.md"
+  ],
+  "bin": {
+    "project": "./bin/index.js"
+  },
+  "devDependencies": {
+    "didyoumean": "^1.2.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "ora": "^4.0.3",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "bunyan": "^1.8.12",
+    "cross-env": "^6.0.3"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^4.0.1",
+    "download-git-repo": "^3.0.2",
+    "ejs": "^3.0.1",
+    "execa": "^3.4.0",
+    "fs-extra": "^8.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js}": [
+      "eslint",
+      "git add"
+    ]
+  }
+}
