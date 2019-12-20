@@ -10,17 +10,15 @@ const fs = require('fs-extra');
 const ora = require('ora');
 const chalk = require('chalk');
 const ejs = require('ejs');
-const downloadGitRepo  = require('download-git-repo');
-
+const downloadGitRepo = require('download-git-repo');
 
 const downGitRepoPromise = (url, to) => {
 	return new Promise((resolve, reject) => {
 		downloadGitRepo(`direct:${url}`, to, { clone: true }, function(err) {
 			if (err) reject(err);
 			else resolve();
-		})
-	})
-
+		});
+	});
 };
 
 const outputTemplate = async (options) => {
@@ -32,7 +30,7 @@ const outputTemplate = async (options) => {
 	} catch (error) {
 		Promise.reject(error);
 	}
-}
+};
 
 const create = (name, options) => {
 	const spinner = ora(`create ${name}`).start();

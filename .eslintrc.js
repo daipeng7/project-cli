@@ -16,15 +16,8 @@ module.exports = {
 		browser: true,
 	},
 	extends: [
-		// https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
-		// consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
-		'plugin:vue/essential',
 		// https://github.com/standard/standard/blob/master/docs/RULES-en.md
 		'standard'
-	],
-	// required to lint *.vue files
-	plugins: [
-		'vue'
 	],
 	// add your custom rules here
 	rules: {
@@ -38,9 +31,10 @@ module.exports = {
 		'no-useless-escape': 'off',
 		'indent': ['error', 'tab', {}],
 		// 语句强制分号结尾
-		'semi': [2, 'always'],
+		'semi': ["error", 'always'],
 		// 语句强制分号结尾
 		'semi-spacing': [0, { 'before': false, 'after': true }],
+		"semi-style": ["error", "last"],
 		// 不在function前面加空格
 		'space-before-function-paren': 0,
 		// allow async-await

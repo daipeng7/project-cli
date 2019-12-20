@@ -12,6 +12,6 @@ const resolve = dir => path.resolve(__dirname, '../', dir);
 const TEMPLATE_PATH = resolve('./src/lib/template');
 const copy = function() {
 	fs.copySync(TEMPLATE_PATH, resolve('./lib/template'));
-}
+};
 
 copy();
